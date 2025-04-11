@@ -1,114 +1,114 @@
 # 📚 Bookshop API
 
-Bookshop API is a comprehensive book management application built using **Node.js**, **Express**, and **MySQL**. The application provides various book and review management features for both public and registered users.
+Bookshop API adalah aplikasi manajemen buku komprehensif yang dibangun menggunakan **Node.js**, **Express**, dan **MySQL**. Aplikasi ini menyediakan berbagai fitur manajemen buku dan ulasan untuk pengguna umum dan terdaftar.
 
-## 🚀 Project Overview
+## 🚀 Gambaran Proyek
 
-This API allows users to:
-- Browse books by various criteria (ISBN, author, title)
-- View book reviews
-- Register and login
-- Add, modify, and delete reviews (for registered users)
+API ini memungkinkan pengguna untuk:
+- Menjelajahi buku berdasarkan berbagai kriteria (ISBN, penulis, judul)
+- Melihat ulasan buku
+- Mendaftar dan login
+- Menambah, mengubah, dan menghapus ulasan (untuk pengguna terdaftar)
 
-## 🛠 Prerequisites
+## 🛠 Prasyarat
 
-- Node.js (v14+ recommended)
+- Node.js (direkomendasikan v14+)
 - MySQL
 - npm (Node Package Manager)
 
-## 📋 Installation Steps
+## 📋 Langkah Instalasi
 
-### 1. Database Setup
+### 1. Penyiapan Database
 
-1. Create a MySQL database named `bookshop`
-2. Import database schema:
+1. Buat database MySQL dengan nama `bookshop`
+2. Import skema database:
    ```bash
-   mysql bookshop < database-schema.sql
+   mysql bookshop_db < database-schema.sql
    ```
-3. Import sample data:
+3. Import data contoh:
    ```bash
-   mysql bookshop < sample_data.sql
+   mysql bookshop_db < sample_data.sql
    ```
 
-### 2. Project Installation
+### 2. Instalasi Proyek
 
 ```bash
-# Clone the repository
+# Clone repository
 git clone https://github.com/ImmanuelPartogi/Bookshop-Api
 cd bookshop-api
 
-# Install dependencies
+# Install dependensi
 npm install
 
-# Configure environment
+# Konfigurasi environment
 cp .env.example .env
-# Edit .env file with your database credentials
+# Edit file .env dengan kredensial database Anda
 ```
 
-### 3. Running the Application
+### 3. Menjalankan Aplikasi
 
 ```bash
-# Development mode
+# Mode pengembangan
 npm run dev
 
-# Production mode
+# Mode produksi
 npm start
 ```
 
-## 🌐 Endpoint Categories
+## 🌐 Kategori Endpoint
 
-### 🔓 Public Endpoints
-| Method | Endpoint | Description |
+### 🔓 Endpoint Publik
+| Metode | Endpoint | Deskripsi |
 |--------|----------|-------------|
-| GET | `/api/books` | Retrieve all available books |
-| GET | `/api/books/isbn/:isbn` | Find book by ISBN |
-| GET | `/api/books/author/:author` | Find books by author |
-| GET | `/api/books/title/:title` | Find books by title |
-| GET | `/api/books/:bookId/reviews` | Get reviews for a specific book |
-| POST | `/api/auth/register` | Register a new user |
-| POST | `/api/auth/login` | User login |
+| GET | `/api/books` | Ambil semua buku yang tersedia |
+| GET | `/api/books/isbn/:isbn` | Cari buku berdasarkan ISBN |
+| GET | `/api/books/author/:author` | Cari buku berdasarkan penulis |
+| GET | `/api/books/title/:title` | Cari buku berdasarkan judul |
+| GET | `/api/books/:bookId/reviews` | Dapatkan ulasan untuk buku tertentu |
+| POST | `/api/auth/register` | Daftarkan pengguna baru |
+| POST | `/api/auth/login` | Login pengguna |
 
-### 🔐 Authenticated Endpoints
-| Method | Endpoint | Description |
+### 🔐 Endpoint Terautentikasi
+| Metode | Endpoint | Deskripsi |
 |--------|----------|-------------|
-| POST | `/api/books/:bookId/reviews` | Add or update book review |
-| DELETE | `/api/reviews/:id` | Delete user's own review |
+| POST | `/api/books/:bookId/reviews` | Tambah atau perbarui ulasan buku |
+| DELETE | `/api/reviews/:id` | Hapus ulasan milik pengguna sendiri |
 
-### ⚙️ Advanced Node.js Methods
-| Method | Endpoint | Description |
+### ⚙️ Metode Node.js Lanjutan
+| Metode | Endpoint | Deskripsi |
 |--------|----------|-------------|
-| GET | `/api/books/async` | Fetch books using async callback |
-| GET | `/api/books/promise/isbn/:isbn` | Find book by ISBN using Promises |
-| GET | `/api/books/axios/author/:author` | Find books by author using Axios |
-| GET | `/api/books/axios/title/:title` | Find books by title using Axios |
+| GET | `/api/books/async` | Ambil buku menggunakan async callback |
+| GET | `/api/books/promise/isbn/:isbn` | Cari buku berdasarkan ISBN menggunakan Promises |
+| GET | `/api/books/axios/author/:author` | Cari buku berdasarkan penulis menggunakan Axios |
+| GET | `/api/books/axios/title/:title` | Cari buku berdasarkan judul menggunakan Axios |
 
-## 🧪 Testing
+## 🧪 Pengujian
 
-1. Import `bookshop-api.postman_collection.json` to Postman
-2. Set `base_url` (default: `http://localhost:5000`)
-3. For authenticated endpoints, first login to obtain a token
+1. Import `bookshop-api.postman_collection.json` ke Postman
+2. Atur `base_url` (default: `http://localhost:5000`)
+3. Untuk endpoint terautentikasi, login terlebih dahulu untuk mendapatkan token
 
-## 🔐 Authentication
+## 🔐 Autentikasi
 
-- Use `/api/auth/login` to get an authentication token
-- Include the token in the Authorization header for protected routes
+- Gunakan `/api/auth/login` untuk mendapatkan token autentikasi
+- Sertakan token di header Otorisasi untuk rute yang dilindungi
 
-## 📦 Sample Data
+## 📦 Data Contoh
 
-The project includes sample data for books, users, and reviews to help you get started quickly.
+Proyek ini menyertakan data contoh untuk buku, pengguna, dan ulasan untuk membantu Anda memulai dengan cepat.
 
-## 🤝 Contributing
+## 🤝 Kontribusi
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+1. Fork repository
+2. Buat branch fitur Anda (`git checkout -b fitur/FiturMenakjubkan`)
+3. Commit perubahan Anda (`git commit -m 'Tambahkan FiturMenakjubkan'`)
+4. Push ke branch (`git push origin fitur/FiturMenakjubkan`)
+5. Buka Pull Request
 
-## 📞 Contact
+## 📞 Kontak
 
-- GitHub: (https://github.com/ImmanuelPartogi)
+- GitHub: https://github.com/ImmanuelPartogi
 
 ## 🚨 Disclaimer
 
-This is a sample project for educational purposes. Ensure you follow best practices for security and performance in a production environment.
+Ini adalah proyek contoh untuk tujuan pendidikan. Pastikan Anda mengikuti praktik terbaik untuk keamanan dan kinerja di lingkungan produksi.
